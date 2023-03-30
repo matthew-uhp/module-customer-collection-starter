@@ -1,0 +1,15 @@
+{
+    "customer_collection_item": {
+        "column": {
+            "id": true,
+            "product_id": true,
+            "customer_id": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CUSTOMER_COLLECTION_ITEM_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true
+        }
+    }
+}

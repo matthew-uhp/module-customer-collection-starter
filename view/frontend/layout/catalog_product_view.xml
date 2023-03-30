@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <!--
+                OBJECTIVE 4: "Add to collection" block, with template and
+                \SwiftOtter\CustomerCollection\ViewModel\Product\View\CollectionAdd view model assigned.
+                Make dependent on enabled/disabled setting.
+            -->
+        </referenceContainer>
+    </body>
+</page>
