@@ -1,0 +1,9 @@
+<?php
+// Load the child block template which populates the individual collection items
+$itemsHtml = $block->getChildHtml("customer.collection.items")
+?>
+<p>Below are all of the items currently in your collection. You can add more items by browsing to their page in the store, and clicking the 'add to collection' button.</p>
+
+<div class="collection-item-container">
+    <?= $itemsHtml ?>
+</div>
