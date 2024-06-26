@@ -1,0 +1,42 @@
+<?php
+$viewModel = $block->getData('view_model');
+
+// Get the collection items
+$itemModelArray = $viewModel->getCollectionItems();
+
+// Show an empty message if there are no collection items
+if (empty($itemModelArray)) {
+    echo "<p>There are no items in your collection.</p>";
+    return;
+}
+?>
+
+<?php foreach ($itemModelArray as $itemModel): ?>
+    <?php
+        /**
+         * Create escaped variables for use in the template.
+         *
+         * @var \Magento\Framework\Escaper $escaper
+         */
+        $escapedProductName = $escaper->escapeHtml($itemModel->getProductName());
+        $escapedProductUrl = $escaper->escapeUrl($itemModel->getProductUrl());
+        $escapedProductImageUrl = $escaper->escapeUrl($itemModel->getProductImageUrl());
+        $escapedItemComment = $escaper->escapeHtml($itemModel->getComment());
+    ?>
+
+    <div class="collection-item">
+        <a href="<?= $escapedProductUrl ?>">
+            <img src="<?= $escapedProductImageUrl ?>" alt="<?= $escapedProductName ?>">
+        </a>
+
+        <strong class="product name product-item-name">
+            <a class="product-item-link" href="<?= $escapedProductUrl ?>">
+                <?= $escapedProductName ?>
+            </a>
+        </strong>
+
+        <?php if (!empty($escapedItemComment)): ?>
+            <em><?= $escapedItemComment ?></em>
+        <?php endif; ?>
+    </div>
+<?php endforeach; ?>
