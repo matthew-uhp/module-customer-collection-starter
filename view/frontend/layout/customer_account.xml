@@ -2,7 +2,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="customer_account_navigation">
-            <block class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-collection-link">
+            <!-- Only show link on customer account page if enabled -->
+            <block class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-collection-link" ifconfig="customer/collection/enabled">
                 <arguments>
                     <argument name="path" xsi:type="string">mycollection</argument>
                     <argument name="label" xsi:type="string" translate="true">My Collection</argument>
