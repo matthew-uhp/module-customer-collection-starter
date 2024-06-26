@@ -2,11 +2,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="product.info.main">
-            <!--
-                OBJECTIVE 4: "Add to collection" block, with template and
-                \SwiftOtter\CustomerCollection\ViewModel\Product\View\CollectionAdd view model assigned.
-                Make dependent on enabled/disabled setting.
-            -->
+            <block class="Magento\Framework\View\Element\Template" name="customer.collection.add" as="addToCollectionBlock" template="SwiftOtter_CustomerCollection::add_to_collection.phtml" ifconfig="customer/collection/enabled">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">SwiftOtter\CustomerCollection\ViewModel\Product\View\CollectionAdd</argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>
