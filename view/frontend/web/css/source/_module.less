@@ -1,0 +1,54 @@
+// Variables
+@customer-collections__background-color: lighten(@theme__color__primary, 50%);
+
+// Shared styles for all screen sizes
+& when (@media-common = true) {
+    .collection-item-container {
+        display: grid;
+        width: 100vw;
+        max-width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: @indent__s;
+
+        .collection-item {
+            padding: @indent__s;
+            text-align: center;
+            background-color: @customer-collections__background-color;
+        }
+    }
+
+    .add-to-collection-form {
+        background-color: @customer-collections__background-color;
+        padding: @indent__s;
+        margin-bottom: @indent__m;
+
+        h3 {
+            margin-top: 0;
+            
+            // Function to add icon
+            .lib-icon-font (
+                @_icon-font-content: @icon-flag,
+                @_icon-font-size: 1em,
+                @_icon-font-position: before,
+                @_icon-font-margin: 0px
+            );
+        }
+
+        .fieldset {
+            display: flex;
+            gap: @indent__s;
+            margin: 0;
+
+            .field {
+                margin: 0;
+                flex-grow: 1;
+            }
+
+            textarea {
+                height: 2em;
+                padding: 0.25em;
+                resize: vertical;
+            }
+        }
+    }
+}
