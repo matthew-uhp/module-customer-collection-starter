@@ -5,7 +5,7 @@
         <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID" />
         <column xsi:type="int" name="product_id" unsigned="true" nullable="false" comment="Product ID" />
         <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" comment="Customer ID" />
-        <!-- OBJECTIVE 1: Add "comment" text field -->
+        <column xsi:type="varchar" name="comment" length="255" nullable="false" comment="Comment" />
         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
                 comment="Created At"/>
         <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"

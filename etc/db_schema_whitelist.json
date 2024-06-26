@@ -5,7 +5,8 @@
             "product_id": true,
             "customer_id": true,
             "created_at": true,
-            "updated_at": true
+            "updated_at": true,
+            "comment": true
         },
         "constraint": {
             "PRIMARY": true,
