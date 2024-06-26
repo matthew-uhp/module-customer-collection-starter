@@ -4,17 +4,21 @@ namespace SwiftOtter\CustomerCollection\Controller\Index;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\ActionInterface;
 
+use Magento\Framework\View\Result\PageFactory AS ResultPageFactory;
+
 class Index implements ActionInterface, HttpGetActionInterface
 {
-    public function __construct(
-        /** OBJECTIVE 7: Dependencies */
-    ) {
+    private ResultPageFactory $resultPageFactory;
 
+    public function __construct(
+        ResultPageFactory $resultPageFactory
+    ) {
+        $this->resultPageFactory = $resultPageFactory;
     }
 
     public function execute()
     {
-        /** OBJECTIVE 7: Return appropriate result */
-        die("Temporary collection page output");    // TODO Remove
+        // Create a new results page
+        return $this->resultPageFactory->create();
     }
 }
