@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <title>My Collection</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block name="customer.collection" class="Magento\Framework\View\Element\Template" template="SwiftOtter_CustomerCollection::my_collection_list.phtml" ifconfig="customer/collection/enabled" cacheable="false">
+                <block name="customer.collection.items" template="SwiftOtter_CustomerCollection::my_collection_item.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">SwiftOtter\CustomerCollection\ViewModel\Customer\CollectionList</argument>
+                    </arguments>
+                </block>
+            </block>
+
+        </referenceContainer>
+    </body>
+</page>
