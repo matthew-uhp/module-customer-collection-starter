@@ -1,0 +1,53 @@
+<?php
+$viewModel = $block->getData('view_model');
+
+// Get the product ID that this form is being used for
+$productId = $viewModel->getProductId();
+
+// Do not render the form if the product ID is empty
+$productIdValid = true;
+
+if ($productId == '') {
+    $productIdValid = false;
+    return;
+}
+
+/**
+ * Create escaped variables for use in the template.
+ * Using __() to translate strings for internationalization.
+ *
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$escapedFormSuffix = $escaper->escapeHtmlAttr("_".$productId);
+$escapedFormAction = $escaper->escapeUrl($viewModel->getActionUrl());
+$escapedProductId = $escaper->escapeHtmlAttr($productId);
+$escapedCommentLabel = $escaper->escapeHtml(__("Comment (optional)"));
+$escapedFormHeading = $escaper->escapeHtml(__("Add this product to your collection"));
+$escapedSubmitButtonText = $escaper->escapeHtml(__("Add to collection"));
+
+?>
+<?php if ($viewModel->customerIsLoggedIn() && $productIdValid): ?>
+    <div class="add-to-collection-form">
+        <form id="collection_form<?= $escapedFormSuffix ?>" method="post" action="<?= $escapedFormAction ?>" data-mage-init='{ "validation":{} }'>
+
+            <h3><i class="lib-icon-font"></i> <?= $escapedFormHeading ?></h3>
+
+            <input type="hidden" name="product_id" value="<?= $escapedProductId ?>" data-validate="{required: true}" />
+
+            <fieldset class="fieldset">
+                <div class="field">
+                    <label for="collection_comment<?= $escapedFormSuffix ?>" class="label">
+                        <span><?= $escapedCommentLabel ?></span>
+                    </label>
+                    <div class="control">
+                        <textarea id="collection_comment<?= $escapedFormSuffix ?>" name="comment" class="input-text"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="action submit primary">
+                    <span><?= $escapedSubmitButtonText ?></span>
+                </button>
+            </fieldset>
+        </form>
+    </div>
+<?php endif; ?>
